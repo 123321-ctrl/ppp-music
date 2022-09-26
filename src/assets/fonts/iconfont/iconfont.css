@@ -1,0 +1,151 @@
+@font-face {
+  font-family: "iconfont"; /* Project id 3628537 */
+  src: url('./iconfont.woff2?t=1664160721405') format('woff2'),
+       url('./iconfont.woff?t=1664160721405') format('woff'),
+       url('./iconfont.ttf?t=1664160721405') format('truetype');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-yejing:before {
+  content: "\e609";
+}
+
+.icon-lieri:before {
+  content: "\e60a";
+}
+
+.icon-previous:before {
+  content: "\e7a7";
+}
+
+.icon-danquxunhuan:before {
+  content: "\e622";
+}
+
+.icon-zanting:before {
+  content: "\e674";
+}
+
+.icon-baocunshunxu:before {
+  content: "\e67b";
+}
+
+.icon-suiji:before {
+  content: "\e7b8";
+}
+
+.icon-bofang1:before {
+  content: "\e667";
+}
+
+.icon-next:before {
+  content: "\e74c";
+}
+
+.icon-geciweidianji:before {
+  content: "\e727";
+}
+
+.icon-gedan1:before {
+  content: "\e6bf";
+}
+
+.icon-zuidahua:before {
+  content: "\e621";
+}
+
+.icon-xihuan:before {
+  content: "\e60e";
+}
+
+.icon-weixihuan:before {
+  content: "\e6c9";
+}
+
+.icon-shoucang:before {
+  content: "\e632";
+}
+
+.icon-fenxiang:before {
+  content: "\e624";
+}
+
+.icon-bofang:before {
+  content: "\e607";
+}
+
+.icon-erji:before {
+  content: "\e64c";
+}
+
+.icon-24gf-playCircle:before {
+  content: "\ea82";
+}
+
+.icon-yinle:before {
+  content: "\e603";
+}
+
+.icon-paixingbang:before {
+  content: "\e6c5";
+}
+
+.icon-geshou:before {
+  content: "\e605";
+}
+
+.icon-yinle1:before {
+  content: "\e604";
+}
+
+.icon-gedan:before {
+  content: "\e636";
+}
+
+.icon-MV:before {
+  content: "\e606";
+}
+
+.icon-sousuo:before {
+  content: "\eafe";
+}
+
+.icon-github:before {
+  content: "\e673";
+}
+
+.icon-suoxiao:before {
+  content: "\e600";
+}
+
+.icon-fangda:before {
+  content: "\e601";
+}
+
+.icon-home:before {
+  content: "\e7c6";
+}
+
+.icon-touxiang:before {
+  content: "\e620";
+}
+
+.icon-clothes:before {
+  content: "\e8c7";
+}
+
+.icon-youjiantou:before {
+  content: "\e602";
+}
+
+.icon-zuojiantou:before {
+  content: "\e608";
+}
+
