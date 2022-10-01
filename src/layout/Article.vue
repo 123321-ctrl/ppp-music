@@ -1,5 +1,5 @@
 <template>
-  <div class="article">
+  <div :class="articleClass">
     <div class="content">
       <keep-alive>
         <router-view></router-view>
@@ -16,13 +16,30 @@ export default {
   data() {
     return {};
   },
+  computed:{
+    theme() {
+      return this.$store.state.theme;
+    },
+    articleClass(){
+      return ['article',`${this.theme + '-article'}`]
+    }
+  },
   //生命周期 - 创建完成（访问当前this实例）
   created() {},
   //生命周期 - 挂载完成（访问DOM元素）
   mounted() {},
 };
 </script>
-<style scoped>
+<style lang="less" scoped>
+@import "../utils/theme.less";
+.light-article{
+  background-color: @LightMain;
+  color: @lightFontColor;
+}
+.dark-article{
+  background-color: @DarkMain;
+  color: @darkFontColor;
+}
 .article {
   width: 82%;
   height: calc(100% - 58px - 60px);

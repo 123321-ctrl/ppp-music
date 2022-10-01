@@ -1,7 +1,7 @@
 <template>
   <div>
     <h4>最新MV</h4>
-    <div>
+    <div class="mvarea">
       <span v-for="(item, index) in areas" :key="index" class="items" @click="handleAreasClick1(index)">
         {{ item }}
       </span>
@@ -66,13 +66,13 @@ export default {
     Personalizeds() {
       Personalized(10,).then(res => {
         this.perMV = res.data.result
-        console.log(this.perMV)
+        // console.log(this.perMV)
       })
     },
     getTopMvs(){
       getTopMv(10,this.mvArea,this.offset).then(res=>{
         this.topMv = res.data.data
-        console.log(this.topMv)
+        // console.log(this.topMv)
       })
     }
   },
@@ -81,13 +81,21 @@ export default {
 };
 </script>
 <style scoped>
+h4{
+  margin: 0;
+}
+.mvarea{
+  font-size: 15px;
+  margin: 10px 0;
+}
 .items {
   display: inline-block;
   width: 50px;
+  font-size: 15px;
 }
 
 .items:hover {
   cursor: pointer;
-  color: aqua;
+  color: rgb(136,190,246);
 }
 </style>

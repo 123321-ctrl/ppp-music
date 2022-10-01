@@ -20,7 +20,7 @@ import rankListItem from "./rank-list-item.vue";
 export default {
   name: "RankList",
   components: {
-    rankListItem,
+    rankListItem
   },
   data() {
     return {

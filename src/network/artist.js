@@ -18,3 +18,23 @@ export function getArtistHot50(id){
         }
     })
 }
+
+/**mv */
+export function getArtistMv(id){
+    return requset({
+        url:'/artist/mv',
+        params:{
+            id:id
+        }
+    })
+}
+
+/**获取歌手描述 */
+export function getArtistDescDetail(id){
+    return requset({
+        url:'/artist/desc',
+        params:{
+            id:id
+        }
+    })
+}

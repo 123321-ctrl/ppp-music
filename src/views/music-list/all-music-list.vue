@@ -22,6 +22,14 @@
       </el-tabs>
     </template>
     <MusicList :personalized="playlists"></MusicList>
+    <div class="all-musiclist-bottom">
+      <el-pagination
+        background
+        :current-page.sync="offset"
+        :page-count="50"
+        @current-change="onPageChange"
+      />
+    </div>
   </div>
 </template>
 
@@ -41,45 +49,40 @@ export default {
     return {
       activeName: "华语",
       value: [],
-      options: [
-        // {
-        //   value: "zhinan",
-        //   label: "指南",
-        //   children: [
-        //     {
-        //       value: "shejiyuanze",
-        //       label: "设计原则",
-        //     },
-        //     {
-        //       value: "daohang",
-        //       label: "导航",
-        //     },
-        //   ],
-        // },
-      ],
       categories: [],
       menu: [],
       playlists: [],
-      cat:'华语'
+      cat:'华语',
+      offset: 1,
+      limit: 50,
     };
   },
   methods: {
+    onPageChange(){
+      this.clickPlayList()
+    },
     handleChange(value) {
-      console.log(value);
+      this.reset()
+      this.cat = value[1]
+      this.clickPlayList()
     },
 
     //点击菜单
     handleClick(tab) {
+      this.reset()
       this.cat = tab.$options.propsData.name;
-      // console.log(this.cat);
       this.clickPlayList()
     },
 
     clickPlayList() {
-      getPlayList(this.cat).then((res) => {
+      getPlayList(this.cat,this.limit,this.offset).then((res) => {
         this.playlists = res.data.playlists;
         // console.log(this.playlists);
       });
+    },
+    reset(){
+      this.offset=1;
+      this.playlists=[]
     },
   },
   //生命周期 - 创建完成（访问当前this实例）

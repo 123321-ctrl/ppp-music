@@ -3,39 +3,39 @@
     <el-col>
       <el-menu
         class="el-menu-vertical-demo"
-        background-color="rgb(255, 255, 255)"
-        :text-color="theme === light ? Dtextcolor : Ltextcolor"
+        :background-color="theme === 'light' ? lightbgc : darkbgc"
         active-text-color="#ffd04b"
+        height="calc(100% - 58px - 60px)"
       >
         <!-- 可优化v-for -->
         <el-menu-item index="1">
           <i class="iconfont icon-yinle1"></i>
-          <router-link to="/individuation"><span>个性推荐</span></router-link>
+          <router-link to="/individuation" :class="aTheme"><span>个性推荐</span></router-link>
         </el-menu-item>
 
         <el-menu-item index="2">
           <i class="iconfont icon-gedan"></i>
-          <router-link to="/allmusiclist"><span>歌单</span></router-link>
+          <router-link to="/allmusiclist" :class="aTheme"><span>歌单</span></router-link>
         </el-menu-item>
 
         <el-menu-item index="3">
           <i class="iconfont icon-paixingbang"></i>
-          <router-link to="/ranklist"><span>排行榜</span></router-link>
+          <router-link to="/ranklist" :class="aTheme"><span>排行榜</span></router-link>
         </el-menu-item>
 
         <el-menu-item index="4">
           <i class="iconfont icon-geshou"></i>
-          <router-link to="/artist-list"><span>歌手</span></router-link>
+          <router-link to="/artist-list" :class="aTheme"><span>歌手</span></router-link>
         </el-menu-item>
 
         <el-menu-item index="5">
           <i class="iconfont icon-MV"></i>
-          <router-link to="/mv"><span>MV</span></router-link>
+          <router-link to="/mv" :class="aTheme"><span>MV</span></router-link>
         </el-menu-item>
 
         <el-menu-item index="6">
           <i class="iconfont icon-yinle"></i>
-          <router-link to="/new-songs"><span>最新音乐</span></router-link>
+          <router-link to="/new-songs" :class="aTheme"><span>最新音乐</span></router-link>
         </el-menu-item>
       </el-menu>
     </el-col>
@@ -67,19 +67,28 @@ export default {
     asideClass() {
       return ["aside", `${this.theme + "-theme"}`];
     },
+    aTheme(){
+      return `${this.theme + '-a'}`
+    }
   },
 };
 </script>
 <style lang="less" scoped>
 @import "../utils/theme.less";
 .light-theme {
-  background-color: @lightTheme;
+  background-color: @LightAside;
   color: @lightFontColor;
 }
 
 .dark-theme {
-  background-color: @darkTheme;
+  background-color: @DarkAside;
   color: @darkFontColor;
+}
+.light-a{
+  color: @lightFontColor;
+}
+.dark-a{
+  color: #fff;
 }
 i {
   margin-right: 10px;
@@ -90,9 +99,12 @@ i {
   // background-color: #545c64;
   float: left;
 }
+.el-col-24{
+  height: 600px;
+}
 a {
   text-decoration: none;
-  color: #fff;
+  // color: #fff;
   display: block;
   height: 56px;
   width: 77%;

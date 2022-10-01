@@ -20,7 +20,7 @@
         <div class="right">
           <div class="desc">
             <span>{{ item.user.nickname }}：</span>
-            {{ item.content }}
+            <span class="content">{{ item.content }}</span>
           </div>
           <div class="bottom">{{ formatDate(item.time) }}</div>
         </div>
@@ -85,6 +85,7 @@ export default {
   .right {
     flex: 1;
     padding-left: 20px;
+    overflow: hidden;
     .desc {
       padding: 5px 0px;
     }

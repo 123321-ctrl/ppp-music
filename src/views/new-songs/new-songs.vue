@@ -61,12 +61,13 @@ export default {
 
 <style scoped>
 .items {
+  font-size: 15px;
   display: inline-block;
   width: 50px;
 }
 
 .items:hover {
   cursor: pointer;
-  color: aqua;
+  color: rgb(45,140,240);
 }
 </style>

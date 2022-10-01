@@ -9,7 +9,7 @@
       @click="enterMvDetail(item)"
     >
       <div class="imgAndplay">
-        <img :src="item.cover  || item.picUrl" alt="" />
+        <img :src="item.cover  || item.picUrl || item.artist.picUrl" alt="" />
         <transition
           name="play"
           enter-active-class="animate__animated animate__fadeInLeft"
@@ -23,7 +23,7 @@
       </div>
 
       <p>{{ item.name }}</p>
-      <span>{{item.artist || item.artistName}}</span>
+      <span>{{ item.artistName}}</span>
 
       <transition
         name="playlist-slide"

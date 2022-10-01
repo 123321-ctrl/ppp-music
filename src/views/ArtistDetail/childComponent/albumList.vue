@@ -25,7 +25,7 @@ export default {
     getArtistHot50s(artistId) {
       getArtistHot50(artistId).then((res) => {
         this.albumList = res.data.songs;
-        console.log(this.albumList);
+        // console.log(this.albumList);
         const length = this.albumList.length;
         for (let i = 0; i < length; i++) {
           getSongsDetail(this.albumList[i].id).then((res) => {
@@ -39,6 +39,7 @@ export default {
   watch: {
     artistId: {
       handler(newArtistId) {
+        this.musicList=[]
         this.getArtistHot50s(newArtistId);
       },
       immediate: true,

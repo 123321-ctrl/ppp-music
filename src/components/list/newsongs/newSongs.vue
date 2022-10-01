@@ -1,6 +1,11 @@
 <template>
   <div class="songList">
-    <div v-for="(item, index) in songList" :key="index" class="songListItem">
+    <div
+      v-for="(item, index) in songList"
+      :key="index"
+      class="songListItem"
+      @click="playmusic(item)"
+    >
       <span>{{ index + 1 }}</span>
       <div class="title">
         <img :src="item.picUrl" alt="" />
@@ -17,6 +22,7 @@
 </template>
 
 <script>
+import { getMusicUrl, Song } from "../../../network/detail";
 export default {
   name: "newSongs",
   props: ["songList"],
@@ -27,6 +33,26 @@ export default {
   created() {},
   //生命周期 - 挂载完成（访问DOM元素）
   mounted() {},
+  methods: {
+    playmusic(item) {
+      getMusicUrl(item.id).then((res) => {
+        const songData = res.data.data[0].url;
+        let song = new Song(songData, item);
+        // let song = {
+        //   url:songData,
+        //   id:item.id,
+        //   name:item.name,
+        //   album:item.song.album.name,
+        //   artist:item.song.artists[0].name,
+        //   pic:item.picUrl,
+        //   time:item.song.duration
+        // }
+        console.log(song);
+        this.songUrl = song;
+        this.$store.commit("getsongUrl", this.songUrl);
+      });
+    },
+  },
 };
 </script>
 <style lang="less" scoped>
@@ -68,7 +94,7 @@ export default {
       position: absolute;
       left: 96px;
       top: -12px;
-      p{
+      p {
         font-size: 14px;
       }
     }

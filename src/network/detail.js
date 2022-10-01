@@ -55,12 +55,35 @@ export function getMusicUrl(id){
 /**对歌曲进行封装 */
 export class Song{
     constructor(songUrl,songData){
-        this.url=songUrl ;
-        this.id = songData.id
+        this.url=songUrl;
+        this.id = songData.id;
         this.name=songData.name;
-        this.album=songData.album;
-        this.artist=songData.artist;
-        this.pic=songData.pic;
-        this.time=songData.time;
+        this.album=songData.album || songData.song.album.name;
+        this.artist=songData.artist || songData.song.artists[0].name;//wu
+        this.pic=songData.pic || songData.picUrl;
+        this.time=songData.time || dateFtt(new Date(songData.song.duration),'mm:ss'); //wu
     }
+}
+
+/**歌单评论信息 */
+export function getRecommends(id,limit,offset){
+    return requset({
+        url:'/comment/playlist',
+        params:{
+            id:id,
+            limit:limit,
+            offset
+        }
+    })
+}
+
+/**获取歌单收藏者 */
+export function getSub(id,limit){
+    return requset({
+        url:'/playlist/subscribers',
+        params:{
+            id:id,
+            limit
+        }
+    })
 }

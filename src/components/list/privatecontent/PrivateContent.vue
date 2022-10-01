@@ -1,6 +1,6 @@
 <template>
   <div class="privatecontent">
-    <div v-for="(item, index) in privatecon" :key="index" class="peivateItem">
+    <div v-for="(item, index) in privatecon" :key="index" class="peivateItem" @click="playMV(item.id)">
       <div class="urlAndicon">
         <img :src="item.picUrl" alt="" />
         <div class="icon">
@@ -24,6 +24,11 @@ export default {
   created() {},
   //生命周期 - 挂载完成（访问DOM元素）
   mounted() {},
+    methods: {
+    playMV(id) {
+      this.$router.push("/mv-detail/" + id);
+    },
+  },
 };
 </script>
 <style lang="less" scoped>

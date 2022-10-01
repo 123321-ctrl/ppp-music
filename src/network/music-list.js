@@ -14,12 +14,14 @@ export function getMusicListHot(){
     })
 }
 
-//
-export function getPlayList(cat){
+/**获取歌单--网友精选碟，全部歌单 */
+export function getPlayList(cat,limit,offset){
     return requset({
         url:'/top/playlist',
         params:{
-            cat:cat
+            cat:cat,
+            limit:limit,
+            offset
         }
     })
 }

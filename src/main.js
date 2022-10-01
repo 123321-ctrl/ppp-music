@@ -6,7 +6,7 @@ import './assets/fonts/iconfont/iconfont.css'
 
 Vue.config.productionTip = false
 
-import { Col,Menu,MenuItem,Carousel,CarouselItem,Cascader,tabs,tabPane,Table,TableColumn,Tag,avatar,button,Message,Switch } from 'element-ui';
+import { Col,Menu,MenuItem,Carousel,CarouselItem,Cascader,tabs,tabPane,Table,TableColumn,Tag,avatar,button,Message,Switch,pagination } from 'element-ui';
 Vue.use(Col)
 Vue.use(Menu)
 Vue.use(MenuItem)
@@ -21,6 +21,7 @@ Vue.use(Tag)
 Vue.use(avatar)
 Vue.use(button)
 Vue.use(Switch)
+Vue.use(pagination)
 
 Vue.prototype.$message = Message
 

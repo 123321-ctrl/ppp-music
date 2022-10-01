@@ -42,6 +42,14 @@
     <div>
       <artistsLists :artistlist="artistlist"></artistsLists>
     </div>
+    <div class="artist-category-page">
+      <el-pagination
+        background
+        :current-page.sync="offset"
+        :page-count="50"
+        @current-change="onPageChange"
+      />
+    </div>
   </div>
 </template>
 
@@ -72,20 +80,23 @@ export default {
     this.getArtists();
   },
   methods: {
+    onPageChange(){
+      this.getArtists();
+    },
     handleAreasClick(index) {
       this.currentArea = this.areas[index].value;
       // console.log(this.currentArea)
-      this.artistlist = []
+      this.artistlist = [];
       this.getArtists();
     },
-    handleTypesClick(index){
+    handleTypesClick(index) {
       this.currentType = this.types[index].value;
-      this.artistlist = []
+      this.artistlist = [];
       this.getArtists();
     },
-    handleNamesClick(index){
+    handleNamesClick(index) {
       this.currentName = this.Fnames[index].value;
-      this.artistlist = []
+      this.artistlist = [];
       this.getArtists();
     },
     async getArtists() {
@@ -108,6 +119,7 @@ export default {
 .Box {
   display: flex;
   height: 60px;
+  font-size: 15px;
   .content {
     display: flex;
     padding-left: 35px;
@@ -118,7 +130,7 @@ export default {
       width: 80px;
     }
     .category:hover {
-      color: aqua;
+      color: rgb(148, 37, 37);
     }
   }
 }
@@ -140,7 +152,7 @@ export default {
       line-height: 30px;
     }
     .fnames:hover {
-      color: aqua;
+      color: rgb(148, 37, 37);
     }
   }
 }

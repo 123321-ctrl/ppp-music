@@ -10,6 +10,10 @@ const MvDetail = () => import('../views/mv/mvDetail')
 
 const routes = [
     {
+        path: '/',
+        redirect: '/individuation'
+    },
+    {
         path: '/individuation',
         component: Individuation
     },
