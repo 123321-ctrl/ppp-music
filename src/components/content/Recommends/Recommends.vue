@@ -15,7 +15,7 @@
       <p>精彩评论</p>
       <div v-for="(item, index) in recommends" :key="index" class="list-item">
         <div class="left">
-          <img :src="item.user.avatarUrl" alt="" />
+          <img v-lazy="item.user.avatarUrl" :key="item.user.avatarUrl" alt="" />
         </div>
         <div class="right">
           <div class="desc">

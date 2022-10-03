@@ -9,7 +9,7 @@
       @click="enterMusicListDetail(index)"
     >
       <div class="imgAndplay">
-        <img :src="item.picUrl || item.coverImgUrl" alt="" />
+        <img v-lazy="item.picUrl || item.coverImgUrl" :key="item.picUrl || item.coverImgUrl" alt="" />
         <transition
           name="play"
           enter-active-class="animate__animated animate__fadeInLeft"

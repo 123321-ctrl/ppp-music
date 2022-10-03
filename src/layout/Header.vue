@@ -14,8 +14,8 @@
       ></span>
     </div>
     <div class="goandback">
-      <span class="iconfont icon-youjiantou" @click="go(1)"></span>
       <span class="iconfont icon-zuojiantou" @click="go(-1)"></span>
+      <span class="iconfont icon-youjiantou" @click="go(1)"></span>
     </div>
     <div class="main">
       <div class="left">

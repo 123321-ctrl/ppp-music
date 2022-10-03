@@ -1,9 +1,10 @@
 <template>
   <div class="playercover" v-if="songUrl">
     <div
-      class="cover-left"
+      :class="['cover-left',`${theme + '-cover'}`]"
       @mouseenter="isShow = true"
       @mouseleave="isShow = false"
+      @click="togglePlayerPure"
     >
       <el-avatar shape="square" :size="80" :src="songUrl.pic"></el-avatar>
       <div class="mask" v-show="isShow">
@@ -26,10 +27,26 @@ export default {
       isShow: false,
     };
   },
+  methods:{
+    togglePlayerPure(){
+      this.$emit('togglePlayerPure',true)
+    }
+  },
+  computed: {
+    theme() {
+      return this.$store.state.theme;
+    },
+  },
 };
 </script>
 
 <style lang="less" scoped>
+.light-cover{
+  box-shadow: 0 0 10px #918a85;
+}
+.dark-cover{
+  box-shadow: 0 0 10px #f9f9f9;
+}
 .playercover {
   width: 17%;
   position: absolute;

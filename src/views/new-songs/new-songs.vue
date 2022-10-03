@@ -39,6 +39,7 @@ export default {
   },
   methods: {
     handleAreasClick(index) {
+      this.musicList = []
       this.currentArea = this.areas[index].content;
       this.getTopSongss();
     },

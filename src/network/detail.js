@@ -77,6 +77,18 @@ export function getRecommends(id,limit,offset){
     })
 }
 
+/**歌曲评论 */
+export function musicRecommend(id,limit,offset){
+    return requset({
+        url:'/comment/music',
+        params:{
+            id:id,
+            limit:limit,
+            offset
+        }
+    })
+}
+
 /**获取歌单收藏者 */
 export function getSub(id,limit){
     return requset({
@@ -84,6 +96,16 @@ export function getSub(id,limit){
         params:{
             id:id,
             limit
+        }
+    })
+}
+
+/**获取歌词 */
+export function getLyric(id){
+    return requset ({
+        url:'/lyric',
+        params:{
+            id:id
         }
     })
 }

@@ -6,7 +6,7 @@ import './assets/fonts/iconfont/iconfont.css'
 
 Vue.config.productionTip = false
 
-import { Col,Menu,MenuItem,Carousel,CarouselItem,Cascader,tabs,tabPane,Table,TableColumn,Tag,avatar,button,Message,Switch,pagination } from 'element-ui';
+import { Col,Menu,MenuItem,Carousel,CarouselItem,Cascader,tabs,tabPane,Table,TableColumn,Tag,avatar,button,Message,Switch,pagination,progress } from 'element-ui';
 Vue.use(Col)
 Vue.use(Menu)
 Vue.use(MenuItem)
@@ -22,11 +22,22 @@ Vue.use(avatar)
 Vue.use(button)
 Vue.use(Switch)
 Vue.use(pagination)
+Vue.use(progress)
 
 Vue.prototype.$message = Message
 
 import animated from 'animate.css';
 Vue.use(animated)
+
+import VueLazyload from 'vue-lazyload'
+Vue.use(VueLazyload)
+const loadimage = require('./assets/gif/loading.gif')
+
+Vue.use(VueLazyload, {
+  preLoad: 1.3,
+  loading: loadimage,
+  attempt: 1
+})
 
 new Vue({
   router,

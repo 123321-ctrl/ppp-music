@@ -12,7 +12,8 @@
       <el-table-column prop="pic" label="操作" width="100">
         <template slot-scope="scope">
           <img
-            :src="scope.row.pic"
+            v-lazy="scope.row.pic"
+            :key="scope.row.pic"
             alt=""
             style="width: 80px; height: 80px"
             v-if="newsongs"

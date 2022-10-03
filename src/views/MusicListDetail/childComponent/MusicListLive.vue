@@ -1,7 +1,7 @@
 <template>
   <div class="content">
     <div v-for="(item, index) in subs" :key="index" class="item">
-      <img :src="item.avatarUrl" alt="" />
+      <img v-lazy="item.avatarUrl" :key="item.avatarUrl" alt="" />
       <div class="nickname">{{ item.nickname }}</div>
     </div>
   </div>

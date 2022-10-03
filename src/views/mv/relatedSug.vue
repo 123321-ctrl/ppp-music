@@ -2,7 +2,7 @@
   <div class="relatedSug">
     <div v-for="(item, index) in relatedMvs" :key="index" class="relatedItem" @click="playMV(item.id)">
       <div class="left">
-        <img :src="item.cover" alt="" />
+        <img v-lazy="item.cover" :key="item.cover" alt="" />
         <div class="count">
           <i class="iconfont icon-MV"></i>
           <div class="play-count">{{ item.playCount }}</div>

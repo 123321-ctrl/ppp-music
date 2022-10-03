@@ -3,7 +3,7 @@
     <el-carousel :interval="4000" type="card" height="200px">
       <el-carousel-item v-for="(item,index) in banner" :key="index">
         <!-- 优化：v-lazy 懒加载 -->
-        <img :src="item.imageUrl" alt height="200px" width="100%"/>
+        <img v-lazy="item.imageUrl" :key="item.imageUrl" alt height="200px" width="100%"/>
       </el-carousel-item>
     </el-carousel>
   </div>
