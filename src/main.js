@@ -6,7 +6,8 @@ import './assets/fonts/iconfont/iconfont.css'
 
 Vue.config.productionTip = false
 
-import { Col,Menu,MenuItem,Carousel,CarouselItem,Cascader,tabs,tabPane,Table,TableColumn,Tag,avatar,button,Message,Switch,pagination,progress } from 'element-ui';
+import { Loading,Col, Menu, MenuItem, Carousel, CarouselItem, Cascader, tabs, tabPane, Table, TableColumn, Tag, avatar, button, Message, Switch, pagination, progress, popover } from 'element-ui';
+Vue.use(Loading)
 Vue.use(Col)
 Vue.use(Menu)
 Vue.use(MenuItem)
@@ -23,8 +24,9 @@ Vue.use(button)
 Vue.use(Switch)
 Vue.use(pagination)
 Vue.use(progress)
+Vue.use(popover)
 
-Vue.prototype.$message = Message
+Vue.prototype.$message = Message;
 
 import animated from 'animate.css';
 Vue.use(animated)

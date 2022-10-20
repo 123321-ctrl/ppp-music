@@ -1,6 +1,10 @@
 <template>
   <div class="songlist">
     <el-table
+      v-loading="isLoading"
+      element-loading-text="拼命加载中"
+      element-loading-spinner="el-icon-loading"
+      element-loading-background="rgba(0, 0, 0, 0.8)"
       :data="musicList"
       stripe
       style="width: 100%"
@@ -18,7 +22,7 @@
             style="width: 80px; height: 80px"
             v-if="newsongs"
           />
-        <i v-if="!newsongs" class="iconfont icon-xihuan"></i>
+          <i v-if="!newsongs" class="iconfont icon-xihuan"></i>
         </template>
       </el-table-column>
 
@@ -39,30 +43,31 @@
 </template>
 
 <script>
-import {getMusicUrl,Song} from '../../../network/detail'
+import { getMusicUrl, Song } from "../../../network/detail";
 export default {
   name: "songList",
   props: ["musicList", "newsongs"],
   data() {
     return {
+      loading: true,
       currentRow: null,
-      songUrl:null
+      songUrl: null,
     };
   },
-  created(){
+  created() {
     // console.log("music",this.musicList,this.newsongs)
   },
   methods: {
     handleCurrentChange(val) {
       this.currentRow = val;
-      getMusicUrl(val.id).then((res)=>{
-        const songData = res.data.data[0].url
-        let song = new Song(songData,val)
-        this.songUrl = song
-          this.$store.commit('getsongUrl',this.songUrl)      
-      })
+      getMusicUrl(val.id).then((res) => {
+        const songData = res.data.data[0].url;
+        let song = new Song(songData, val);
+        this.songUrl = song;
+        this.$store.commit("getsongUrl", this.songUrl);
+      });
     },
-  },  
+  },
   // created() {
   //   console.log(this.musicList);
   // },

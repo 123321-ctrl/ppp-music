@@ -5,7 +5,13 @@
         <router-view></router-view>
       </keep-alive>
     </div>
-
+    <div
+      v-loading="isLoading"
+      element-loading-text="拼命加载中"
+      element-loading-spinner="el-icon-loading"
+      element-loading-background="rgba(0, 0, 0, 0.8)"
+    >
+    </div>
     <!-- loading动效 -->
   </div>
 </template>
@@ -16,13 +22,16 @@ export default {
   data() {
     return {};
   },
-  computed:{
+  computed: {
     theme() {
       return this.$store.state.theme;
     },
-    articleClass(){
-      return ['article',`${this.theme + '-article'}`]
-    }
+    articleClass() {
+      return ["article", `${this.theme + "-article"}`];
+    },
+    isLoading() {
+      return this.$store.state.isloading;
+    },
   },
   //生命周期 - 创建完成（访问当前this实例）
   created() {},
@@ -32,11 +41,11 @@ export default {
 </script>
 <style lang="less" scoped>
 @import "../utils/theme.less";
-.light-article{
+.light-article {
   background-color: @LightMain;
   color: @lightFontColor;
 }
-.dark-article{
+.dark-article {
   background-color: @DarkMain;
   color: @darkFontColor;
 }

@@ -43,6 +43,18 @@ export class songDetail2{
     }
 }
 
+// 对搜索歌曲的封装
+export class Searchsong{
+    constructor(songs){
+        this.id=songs.id ;
+        this.name=songs.name;
+        this.album=songs.al.name;
+        this.artist=songs.ar[0].name;
+        this.pic=songs.al.picUrl;
+        this.time=dateFtt(new Date(songs.dt),'mm:ss')
+    }
+}
+
 /**获取歌曲url */
 export function getMusicUrl(id){
     return requset({

@@ -188,4 +188,13 @@ export default {
     width: 90%;
   }
 }
+.right{
+  width: 17%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  i{
+    font-size: 20px;
+  }
+}
 </style>

@@ -7,6 +7,8 @@ const MV = () => import('../views/mv/mv')
 const NewSongs = () => import('../views/new-songs/new-songs')
 const ArtistDetail = () => import('../views/ArtistDetail/ArtistDetail')
 const MvDetail = () => import('../views/mv/mvDetail')
+const SearchDetail = () => import('../views/SearchDetail/SearchDetail')
+const SearchSongs = () => import('../views/SearchDetail/Childs/SearchSongs')
 
 const routes = [
     {
@@ -48,5 +50,19 @@ const routes = [
         path: '/mv-detail/:id',
         component: MvDetail
     },
+    {
+        path:'/search-detail/:keywords',
+        component:SearchDetail,
+        children:[
+            {
+                path: '/',
+                redirect: 'songs'
+            },
+            {
+                path: 'songs',
+                component: SearchSongs,
+            },
+        ]
+    }
 ]
 export default routes
