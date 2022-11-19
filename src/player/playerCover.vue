@@ -50,7 +50,7 @@ export default {
 .playercover {
   width: 17%;
   position: absolute;
-  top: -142%;
+  top: -210%;
   left: 0px;
   z-index: 1;
   padding-left: 10px;

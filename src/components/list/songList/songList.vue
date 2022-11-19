@@ -1,22 +1,20 @@
 <template>
-  <div class="songlist">
+  <div class="songlist" ref="songlist">
     <el-table
-      v-loading="isLoading"
-      element-loading-text="拼命加载中"
-      element-loading-spinner="el-icon-loading"
-      element-loading-background="rgba(0, 0, 0, 0.8)"
       :data="musicList"
       stripe
       style="width: 100%"
       highlight-current-row
       @current-change="handleCurrentChange"
+      :row-class-name="rowClassName"
+      @row-click="rowClick"
     >
       <el-table-column type="index" width="50"> </el-table-column>
 
       <el-table-column prop="pic" label="操作" width="100">
         <template slot-scope="scope">
           <img
-            v-lazy="scope.row.pic"
+            v-imglazy="scope.row.pic"
             :key="scope.row.pic"
             alt=""
             style="width: 80px; height: 80px"
@@ -27,10 +25,6 @@
       </el-table-column>
 
       <el-table-column prop="name" label="音乐标题" width="200">
-        <!-- <template slot-scope="scope">
-          <span v-if="newsongs">{{ scope.row.album.name }}</span>
-          <span v-if="!newsongs">{{ scope.row.name }}</span>
-        </template> -->
       </el-table-column>
 
       <el-table-column prop="artist" label="歌手"> </el-table-column>
@@ -49,13 +43,15 @@ export default {
   props: ["musicList", "newsongs"],
   data() {
     return {
-      loading: true,
       currentRow: null,
       songUrl: null,
+      boxWidth:0
     };
   },
-  created() {
-    // console.log("music",this.musicList,this.newsongs)
+  watch:{
+    musicList(){
+      this.$store.state.musicList = this.musicList
+    }
   },
   methods: {
     handleCurrentChange(val) {
@@ -67,15 +63,19 @@ export default {
         this.$store.commit("getsongUrl", this.songUrl);
       });
     },
+    rowClassName({row,rowIndex}){
+      row.index = rowIndex
+    },
+    rowClick(row){
+      this.$store.state.currentIndex = row.index
+    }
   },
-  // created() {
-  //   console.log(this.musicList);
-  // },
 };
 </script>
 
 <style scoped>
 .songlist {
+  width: 100%;
   cursor: pointer;
   margin-top: 10px;
   border-top: 1px solid black;

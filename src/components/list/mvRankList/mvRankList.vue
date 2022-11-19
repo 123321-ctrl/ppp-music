@@ -8,7 +8,7 @@
     >
       <span>{{ index + 1 }}</span>
       <div class="title">
-        <img v-lazy="item.cover" :key="item.cover" alt="" />
+        <img v-imglazy="item.cover" :key="item.cover" alt="" />
         <div class="icon">
           <i class="iconfont icon-24gf-playCircle"></i>
         </div>

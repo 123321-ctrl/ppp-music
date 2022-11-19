@@ -1,7 +1,7 @@
 <template>
   <div class="artistBaseInfo">
     <div class="left">
-      <img v-lazy="artist.picUrl" :key="artist.picUrl" alt="" />
+      <img v-imglazy="artist.picUrl" :key="artist.picUrl" alt="" />
     </div>
     <div class="right">
       <h4>

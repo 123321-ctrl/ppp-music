@@ -1,7 +1,7 @@
 <template>
   <div class="baseinfo">
     <div class="left">
-      <img v-lazy="baseINfo.coverImgUrl" :key="baseINfo.coverImgUrl" alt="" />
+      <img v-imglazy="baseINfo.coverImgUrl" :key="baseINfo.coverImgUrl" alt="" />
     </div>
     <div class="right">
       <h4>

@@ -3,6 +3,8 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import './assets/fonts/iconfont/iconfont.css'
+import {setDomFontSize} from './setRem'
+setDomFontSize()
 
 Vue.config.productionTip = false
 
@@ -31,15 +33,19 @@ Vue.prototype.$message = Message;
 import animated from 'animate.css';
 Vue.use(animated)
 
-import VueLazyload from 'vue-lazyload'
-Vue.use(VueLazyload)
-const loadimage = require('./assets/gif/loading.gif')
+// import VueLazyload from 'vue-lazyload'
+// Vue.use(VueLazyload)
+// const loadimage = require('./assets/gif/loading.gif')
 
-Vue.use(VueLazyload, {
-  preLoad: 1.3,
-  loading: loadimage,
-  attempt: 1
-})
+//自定义指令v-imgLazy实现图片懒加载
+import imgLazy from './utils/directives/imgLazy'
+Vue.directive('imglazy',imgLazy)
+
+// Vue.use(VueLazyload, {
+//   preLoad: 1.3,
+//   loading: loadimage,
+//   attempt: 1
+// })
 
 new Vue({
   router,

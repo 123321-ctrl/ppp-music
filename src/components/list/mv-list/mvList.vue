@@ -9,7 +9,7 @@
       @click="enterMvDetail(item)"
     >
       <div class="imgAndplay">
-        <img v-lazy="item.cover  || item.picUrl || item.artist.picUrl" :key="item.cover  || item.picUrl || item.artist.picUrl" alt="" />
+        <img v-imglazy="item.cover  || item.picUrl || item.artist.picUrl" :key="item.cover  || item.picUrl || item.artist.picUrl" alt="" />
         <transition
           name="play"
           enter-active-class="animate__animated animate__fadeInLeft"

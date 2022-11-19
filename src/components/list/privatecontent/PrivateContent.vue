@@ -2,7 +2,7 @@
   <div class="privatecontent">
     <div v-for="(item, index) in privatecon" :key="index" class="peivateItem" @click="playMV(item.id)">
       <div class="urlAndicon">
-        <img v-lazy="item.picUrl" :key="item.picUrl" alt="" />
+        <img v-imglazy="item.picUrl" :key="item.picUrl" alt="" />
         <div class="icon">
           <i class="iconfont icon-MV"></i>
         </div>

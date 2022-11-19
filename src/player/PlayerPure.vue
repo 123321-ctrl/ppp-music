@@ -11,7 +11,7 @@
             <img src="../assets/player/play-bar.png" alt="" />
           </div>
           <div :class="['player-pure-pic',`${'player-pure-pic-'+theme}`]">
-            <img v-lazy="songUrl.pic" :key="songUrl.pic" alt="" />
+            <img v-imglazy="songUrl.pic" :key="songUrl.pic" alt="" />
           </div>
         </div>
         <div class="right">
@@ -172,6 +172,9 @@ export default {
     .song-artist {
       font-size: 13px;
       padding: 3px 0px;
+    }
+    @media screen and (max-width: 568px) {
+        display: none;
     }
   }
 }

@@ -54,6 +54,9 @@ export default {
   height: calc(100% - 58px - 60px);
   float: right;
   overflow-y: auto;
+  @media screen and (max-width: 568px) {
+    width: 86.5%;
+  }
 }
 .content {
   width: 85%;

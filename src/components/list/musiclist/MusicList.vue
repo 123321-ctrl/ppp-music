@@ -1,5 +1,5 @@
 <template>
-  <div class="musiclist-playlist">
+  <div class="musiclist-playlist" ref="container">
     <div
       v-for="(item, index) in personalized"
       :key="index"
@@ -9,7 +9,7 @@
       @click="enterMusicListDetail(index)"
     >
       <div class="imgAndplay">
-        <img v-lazy="item.picUrl || item.coverImgUrl" :key="item.picUrl || item.coverImgUrl" alt="" />
+        <img v-imglazy="item.picUrl || item.coverImgUrl" :key="item.picUrl || item.coverImgUrl" alt="" />
         <transition
           name="play"
           enter-active-class="animate__animated animate__fadeInLeft"
@@ -65,12 +65,8 @@ export default {
           "/" +
           new Date().getTime()
       );
-    },
-  },
-  //生命周期 - 创建完成（访问当前this实例）
-  created() {},
-  //生命周期 - 挂载完成（访问DOM元素）
-  mounted() {},
+    }, 
+  }
 };
 </script>
 <style lang="less" scoped>

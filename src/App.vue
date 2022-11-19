@@ -25,6 +25,6 @@ export default {
   width: 100%;
   height: 100vh;
   overflow: hidden;
-  position: relative;
+  /* position: relative; */
 }
 </style>

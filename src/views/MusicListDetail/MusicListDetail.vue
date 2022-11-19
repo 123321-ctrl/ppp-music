@@ -121,7 +121,6 @@ export default {
       // 获取收藏者
       getSub(this.id, this.limit).then((res) => {
         this.subs = res.data.subscribers;
-        console.log(this.subs);
       });
     },
     playAllMusic() {
