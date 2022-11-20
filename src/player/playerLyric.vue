@@ -22,17 +22,17 @@ export default {
       lyricArray: [], //转换后的歌词数组
       lyricIndex: -1, //活跃的歌词行数
       scrollNum: 5,
-      liHeight:24,  //每一个li的高度
+      liHeight: 24, //每一个li的高度
     };
   },
-  computed:{
+  computed: {
     //容器高度
-    scrollHeight(){
+    scrollHeight() {
       return this.$refs.scroll.clientHeight;
     },
-    maxOffset(){
-      return this.$refs.ul.clientHeight - this.scrollHeight
-    }
+    maxOffset() {
+      return this.$refs.ul.clientHeight - this.scrollHeight;
+    },
   },
   watch: {
     lyric: {
@@ -40,7 +40,7 @@ export default {
         // console.log(newval)
         this.lyricIndex = -1;
         this.lyricArray = parseLyric(newval);
-        console.log(this.lyricArray, "arr");
+        this.$refs.scroll.scrollTo({ top: 0, behavior: "smooth" });
       },
       immediate: true,
     },
@@ -56,39 +56,16 @@ export default {
         ) {
           //正在播放
           this.lyricIndex = i;
-          /**如果歌词展示形式为列表，需要活跃歌词在中间时才滚动 */
-          // if (this.middle) {
-          //   /**list形式时，活跃歌词不到中间不滚动 */
-          //   if (
-          //     this.lyricIndex < this.scrollNum ||
-          //     this.lyricIndex > this.lyricArray.length - this.scrollNum
-          //   )
-          //     return;
-          // } else {
-          //   this.$refs.scroll.scrollTo(0, 25 * this.lyricIndex);
-          // }
-          this.setOffset(this.lyricIndex)
+          this.setOffset(this.lyricIndex);
         }
       }
     },
   },
   methods: {
     setOffset(index) {
-      //容器高度
-      // const scrollHeight = this.$refs.scroll.clientHeight;
-      //每一个li的高度
-      // const liHeight = 24;
-      //计算出的高度差是前面li的高度 - 容器的一半
-      let offset = this.liHeight * index + this.liHeight/2 - this.scrollHeight / 2
-      if(offset<0){
-        offset = 0
+      if (index > 5) {
+        this.$refs.scroll.scrollTo({ top: this.liHeight*(index-5), behavior: "smooth" });
       }
-      // let maxOffset = this.$refs.ul.clientHeight - this.scrollHeight
-      if(offset > this.maxOffset){
-        offset = this.maxOffset
-      }
-      this.$refs.ul.style.transform = `translateY(-${offset}px)`
-      // this.$refs.scroll.scrollTo(0, offset);
     },
   },
 };
@@ -105,8 +82,8 @@ ul {
   padding: 0;
 }
 li {
-  height: 24px;
-  line-height: 24px;
+  height: 24Px;
+  line-height: 24Px;
   list-style: none;
 }
 .activecolor {

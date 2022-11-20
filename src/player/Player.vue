@@ -43,9 +43,17 @@
     <div class="progress">
       <span>{{ getCurrentTime }}</span>
       <div class="pregressContent">
-        <el-progress :percentage="percent" :format="format"></el-progress>
+        <playerProgress
+          :percentage="percent"
+          @changePercent="changePercent($event)"
+        ></playerProgress>
       </div>
       <span>{{ getDurationTime }}</span>
+      <!-- <span>{{ getCurrentTime }}</span>
+      <div class="pregressContent">
+        <el-progress :percentage="percent" :format="format"></el-progress>
+      </div>
+      <span>{{ getDurationTime }}</span> -->
     </div>
     <div class="right">
       <i class="iconfont icon-baocunshunxu" @click="shunxu"></i>
@@ -61,6 +69,7 @@
 import { getLyric } from "../network/detail";
 import playerCover from "./playerCover.vue";
 import PlayerPure from "./PlayerPure.vue";
+import playerProgress from "../components/content/playerProgress/playerProgress.vue";
 import { dateFtt } from "../utils/tools";
 export default {
   name: "MusicPlayer",
@@ -68,6 +77,7 @@ export default {
   components: {
     playerCover,
     PlayerPure,
+    playerProgress,
   },
   data() {
     return {
@@ -101,12 +111,20 @@ export default {
       //如果没有点击表格，state的值为null，否者为索引值
       const storeIndex = this.$store.state.currentIndex;
       const cindex = storeIndex ? storeIndex : 0;
-      return cindex
+      return cindex;
     },
+    // percent: {
+    //   get() {
+    //     return (this.currentTime / this.duration) * 100;
+    //   },
+    //   set(newVal) {
+    //     this.currentTime = (newVal * this.duration) / 100;
+    //   },
+    // },
   },
-  watch:{
-    tableIndex(newVal){
-      this.currentIndex = newVal
+  watch: {
+    tableIndex(newVal) {
+      this.currentIndex = newVal;
     },
     songUrl() {
       this.getLyrics(this.songUrl.id);
@@ -116,8 +134,7 @@ export default {
   created() {
     this.getLyrics(this.songUrl.id);
   },
-  mounted(){
-  },
+  mounted() {},
   methods: {
     togglePlayerPure(state) {
       this.isPure = state;
@@ -131,6 +148,10 @@ export default {
     audioTimeUpdate() {
       this.currentTime = this.$refs.audio.currentTime;
       this.percent = (this.currentTime / this.duration) * 100;
+    },
+    changePercent(e) {
+      // this.percent = e;
+      this.$refs.audio.currentTime = (e * this.duration) / 100;
     },
     /**监听音乐加载 */
     playLoad() {

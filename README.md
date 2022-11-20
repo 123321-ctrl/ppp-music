@@ -44,3 +44,7 @@ vue + vuex + vue-router + axios +element-ui +vue-lazyload
 
 可看pic分支下的“music图片截图”
 
+### 还待完善
+- [] 对历史播放数据进行持久化处理，避免每次都要重新获取。
+- [] 重新设计表格
+- [] 节省性能开销
